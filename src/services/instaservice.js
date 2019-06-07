@@ -18,6 +18,11 @@ export default class InstaService {
         return res;
     }
 
+    getAllUsers = async () => {
+        const res = await this.getResource('posts/');
+        return res.map(this._transformUsers);
+    }
+
     getAllPhotos = async () => {
         const res = await this.getResource('posts/');
         return res.map(this._transformPosts);
@@ -28,6 +33,14 @@ export default class InstaService {
             src: post.src,
             alt: post.alt,
             id: post.id
+        }
+    }
+
+    _transformUsers = (post) => {
+        return {
+            photo: post.photo,
+            altname: post.altname,
+            name: post.name, 
         }
     }
 }
