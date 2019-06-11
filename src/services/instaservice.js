@@ -1,6 +1,7 @@
 export default class InstaService {
     constructor() {
-        this._apiBase = 'http://localhost:3000/'
+        this._apiBase = 'https://instdb.herokuapp.com/'
+        
     }
 
     getResource = async (url) => {
